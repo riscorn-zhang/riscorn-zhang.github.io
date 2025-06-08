@@ -1,0 +1,88 @@
+:root{
+  --icon-height:2em;
+
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  /* 突破body的默认8px外边距 */
+  height: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  position: relative;
+}
+
+#ct1 {
+  display: grid;
+  position: absolute;
+  top: 12.5%;
+  left: 12.5%;
+  height: 75%;
+
+  width: 75%;
+  border-radius: 1em;
+
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  background: color-mix(in srgb, white, transparent 25%);
+
+  grid-template-rows: max-content auto;
+  grid-template-areas:
+    "title"
+    "content";
+}
+
+h1 {
+  grid-area: title;
+  text-align: center;
+}
+
+#ct2 {
+  grid-area: content;
+
+  display: grid;
+}
+.card {
+  display: inline-grid;
+
+  height:2.5em;
+  padding: 1em;
+  border-radius: 1em;
+
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+
+  grid-template-columns: max-content auto;
+  grid-template-rows: 1fr 1fr;
+  grid-column-gap: 1em;
+  grid-template-areas:  "icon name"  "icon desc";
+
+}
+.card > span.name{
+  font-size: 1em;
+  grid-area: name; 
+}
+.card > span.desc{
+  font-size: 0.5em;
+  grid-area: desc;
+}
+.card > span{
+  display: flex;
+  align-items: center;
+}
+.card > img{
+  grid-area: icon;
+  width:2.5em;
+  height:2.5em; 
+}
+
+*[target="_blank"]::before{
+  content: '';
+  mask-image: url(/new_blank.svg);
+  background: inherit;
+  display: inline-block;
+  width:1em;
+  height:1em;
+}
